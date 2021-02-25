@@ -1,4 +1,12 @@
 import React from "react"
+import { AnimalCard } from "./animal/AnimalCard"
+import { LocationCard } from "./location/Location"
+import { EmployeeCard } from "./employees/Employees"
+import { CustomerCard } from "./customer/Customer"
+import "./customer/Customer.css"
+import "./employees/Employees.css"
+import "./location/Location.css"
+import "./animal/Animal.css"
 import "./Kennel.css"
 export const Kennel = () => {
     const kennel = {
@@ -21,6 +29,33 @@ export const Kennel = () => {
             <div>Visit Us at the {kennel.locations[0].name} Location</div>
             <div>{kennel.locations[0].address}</div>
         </address>
+
+        <h2>Animals</h2>
+        <article className="animals">
+            <AnimalCard />
+            <AnimalCard />
+            <AnimalCard />
+        </article>
+
+        <h2>Employees</h2>
+        <article className="employees">
+            <EmployeeCard />
+            <EmployeeCard />
+            <EmployeeCard />
+        </article>
+
+        <h2>locations</h2>
+        <article className="locations">
+            <LocationCard />
+            <LocationCard />
+        </article>
+
+        <h2>Customers</h2>
+        <article className="customers">
+            <CustomerCard />
+            <CustomerCard />
+            <CustomerCard />
+        </article>
     </>
     )
 }
