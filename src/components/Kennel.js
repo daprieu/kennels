@@ -3,6 +3,8 @@ import { AnimalCard } from "./animal/AnimalCard"
 import { LocationCard } from "./location/Location"
 import { EmployeeCard } from "./employees/Employees"
 import { CustomerCard } from "./customer/Customer"
+// Display this component from the Kennel component and pass in your name. Don't forget to import.
+import { PropsAndState } from "./propsAndState/PropsAndState"
 import "./customer/Customer.css"
 import "./employees/Employees.css"
 import "./location/Location.css"
@@ -21,8 +23,10 @@ export const Kennel = () => {
     }
 
     return (
+        // Display this component from the Kennel component and pass in your name. Don't forget to import.
         <>
         {console.log(kennel.name)}
+        <PropsAndState yourName="Alex Prieu" />
         <h2>{kennel.name}</h2>
         <small>{kennel.slogan}</small>
         <address>
