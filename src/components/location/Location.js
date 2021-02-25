@@ -1,9 +1,9 @@
 import React from "react"
-import "./Animal.css"
+import "./Location.css"
 
-export const AnimalCard = () => (
-    <section className="animal">
-        <h3 className="animal__name">Doodles</h3>
-        <div className="animal__breed">Breed: Poodle</div>
+export const LocationCard = () => (
+    <section className="location">
+        <h3 className="location__name">Nashville Kennels North</h3>
+        <div className="location__address">200 Main Street</div>
     </section>
 )

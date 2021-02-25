@@ -1,5 +1,11 @@
 import React from "react"
 import { AnimalCard } from "./animal/AnimalCard"
+import { LocationCard } from "./location/Location"
+import { EmployeeCard } from "./employees/Employees"
+import { CustomerCard } from "./customer/Customer"
+import "./customer/Customer.css"
+import "./employees/Employees.css"
+import "./location/Location.css"
 import "./animal/Animal.css"
 import "./Kennel.css"
 export const Kennel = () => {
@@ -32,23 +38,23 @@ export const Kennel = () => {
         </article>
 
         <h2>Employees</h2>
-        <article className="animals">
-            <AnimalCard />
-            <AnimalCard />
-            <AnimalCard />
+        <article className="employees">
+            <EmployeeCard />
+            <EmployeeCard />
+            <EmployeeCard />
         </article>
 
         <h2>locations</h2>
-        <article className="animals">
-            <AnimalCard />
-            
+        <article className="locations">
+            <LocationCard />
+            <LocationCard />
         </article>
 
         <h2>Customers</h2>
-        <article className="animals">
-            <AnimalCard />
-            <AnimalCard />
-            <AnimalCard />
+        <article className="customers">
+            <CustomerCard />
+            <CustomerCard />
+            <CustomerCard />
         </article>
     </>
     )
