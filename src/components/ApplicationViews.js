@@ -1,11 +1,14 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import { Home } from "./Home"
-import { LocationCard } from "./location/Location"
+import { LocationProvider } from "./location/LocationProvider"
+import { LocationList } from "./location/LocationList"
 import { AnimalProvider } from "./animal/AnimalProvider"
 import { AnimalList } from "./animal/AnimalList"
-import { CustomerCard } from "./customer/Customer"
-import { EmployeeCard } from "./employees/Employees"
+import { CustomerProvider } from "./customer/CustomerProvider"
+import { CustomerList } from "./customer/CustomerList"
+import { EmployeeProvider } from "./employees/EmployeesProvider"
+import { EmployeeList } from "./employees/EmployeesList"
 
 
 export const ApplicationViews = () => {
@@ -19,14 +22,12 @@ export const ApplicationViews = () => {
             </Route>
             
             {/* Render the animal list when http://localhost:3000/locations */}
-            <Route path="/locations">
-                <h2>locations</h2>
-                <article className="locations">
-                    <LocationCard />
-                    <LocationCard />
-                </article>
-            </Route>
-            
+            <LocationProvider>
+                <Route path="/locations">
+                    <h2>locations</h2>
+                    <LocationList />
+                </Route>
+            </LocationProvider>
             {/* Render the animal list when http://localhost:3000/animals */}
             {/* Note that the <AnimalList> component is a child of the <AnimalProvider> component. 
             It is crucial that you wrap components that need data with the provider component that exposes 
@@ -38,24 +39,19 @@ export const ApplicationViews = () => {
                 </Route>
             </AnimalProvider>
             {/* Render the animal list when http://localhost:3000/animals */}
-            <Route path="/customers">
-                <h2>Customers</h2>
-                <article className="customers">
-                    <CustomerCard />
-                    <CustomerCard />
-                    <CustomerCard />
-                </article>
-            </Route>
-
+            <CustomerProvider>
+                <Route path="/customers">
+                    <h2>Customers</h2>
+                        <CustomerList />
+                </Route>
+            </CustomerProvider>
             {/* Render the animal list when http://localhost:3000/animals */}
-            <Route path="/employees">
-                <h2>Employees</h2>
-                <article className="employees">
-                    <EmployeeCard />
-                    <EmployeeCard />
-                    <EmployeeCard />
-                </article>
-            </Route>
+            <EmployeeProvider>
+                <Route path="/employees">
+                    <h2>Employees</h2>
+                    <EmployeeList />
+                </Route>
+            </EmployeeProvider>
         </>
     )
 }
