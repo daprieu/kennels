@@ -1,7 +1,8 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import { Home } from "./Home"
-import { LocationCard } from "./location/Location"
+import { LocationProvider } from "./location/LocationProvider"
+import { LocationList } from "./location/LocationList"
 import { AnimalProvider } from "./animal/AnimalProvider"
 import { AnimalList } from "./animal/AnimalList"
 import { CustomerProvider } from "./customer/CustomerProvider"
@@ -21,14 +22,12 @@ export const ApplicationViews = () => {
             </Route>
             
             {/* Render the animal list when http://localhost:3000/locations */}
-            <Route path="/locations">
-                <h2>locations</h2>
-                <article className="locations">
-                    <LocationCard />
-                    <LocationCard />
-                </article>
-            </Route>
-            
+            <LocationProvider>
+                <Route path="/locations">
+                    <h2>locations</h2>
+                    <LocationList />
+                </Route>
+            </LocationProvider>
             {/* Render the animal list when http://localhost:3000/animals */}
             {/* Note that the <AnimalList> component is a child of the <AnimalProvider> component. 
             It is crucial that you wrap components that need data with the provider component that exposes 

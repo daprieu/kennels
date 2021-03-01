@@ -1,24 +1,24 @@
 import React, { useContext, useEffect } from "react"
-import { EmployeeContext } from "./EmployeesProvider"
-import { EmployeeCard } from "./Employees"
-import "./Employees.css"
+import { LocationContext } from "./LocationProvider"
+import { LocationCard } from "./Location"
+import "./Location.css"
 
-export const EmployeeList = () => {
+export const LocationList = () => {
     // you will notice two new hooks: useContext and useEffect.
     // The useContext hook allows you to use data structures and functions 
     // that a parent provider component exposes.
     // To start, you need to import the context object you created in the provider 
     // component so that the Context hook can access the objects it exposes.
   // This state changes when `getAnimals()` is invoked below
-  const { employees, getEmployees } = useContext(EmployeeContext)
+  const { locations, getLocations } = useContext(LocationContext)
 
 //   The useEffect hook allows the component to reach out into the world for anything 
 //   that cannot be handled during render. 
 //   In this case, it is the API call for the animals.
   //useEffect - reach out to the world for something
   useEffect(() => {
-    console.log("EmployeeList: useEffect - getAnimals")
-    getEmployees()
+    console.log("LocationsList: useEffect - getLocations")
+    getLocations()
 }, [])
 //     What is that empty array bracket?
 // The dependency array. Logic within functions only occur when a function is invoked. 
@@ -31,11 +31,11 @@ export const EmployeeList = () => {
 //   Use the .map() array method to iterate the array of animals and 
 //   generate HTML for each one by invoking the AnimalCard component function.
   return (
-    <div className="employees">
-      {console.log("EmployeeList: Render", employees)}
+    <div className="locations">
+      {console.log("LocationList: Render", locations)}
       {
-        employees.map(employee => {
-          return <EmployeeCard key={employee.id} employee={employee} />
+        locations.map(location => {
+          return <LocationCard key={location.id} location={location} />
         })
       }
     </div>
