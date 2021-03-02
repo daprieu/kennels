@@ -45,13 +45,14 @@ const history = useHistory()
 // Use the .find() method on both the customers array and the locations array to find 
 // the object representation that each foreign key is referencing.
   return (
+      <>
+          <button onClick={() => {history.push("/animals/create")}}>Add Animal</button>
       <div className="animals">
         
 {/* In React, we add event listeners directly on a button's onClick attribute.
 useHistory is provided by react-router-dom. 
 It contains a method, push() which we can use to change the URL. 
 Be sure to import it at the top of the document. */}
-<button onClick={() => {history.push("/animals/create")}}>Add Animal</button>
       {
         animals.map(animal => {
             // const owner = customers.find(c => c.id === animal.customerId)
@@ -64,6 +65,7 @@ Be sure to import it at the top of the document. */}
         })
       }
     </div>
+    </>
   )
 }
 // ***Note that even though it looks like you are specifying an HTML component, you are actually invoking 

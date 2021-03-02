@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react"
+import { useHistory } from "react-router-dom" // import from libraries before your local modules
 import { EmployeeContext } from "./EmployeesProvider"
 import { EmployeeCard } from "./Employees"
 import "./Employees.css"
@@ -29,9 +30,12 @@ export const EmployeeList = () => {
 // Be careful setting state within the useEffect. State changes cause a re-render. Re-render can invoke 
 // useEffect (depending on the dependency array values). This would result in an infinate loop.
 
+const history = useHistory()
 //   Use the .map() array method to iterate the array of animals and 
 //   generate HTML for each one by invoking the AnimalCard component function.
   return (
+    <>
+    <button onClick={() => {history.push("/employees/create")}}>Add Employee</button>
     <div className="employees">
       {console.log("EmployeeList: Render", employees)}
       {
@@ -41,6 +45,7 @@ export const EmployeeList = () => {
         })
       }
     </div>
+    </>
   )
 }
 // ***Note that even though it looks like you are specifying an HTML component, you are actually invoking 
