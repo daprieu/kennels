@@ -39,10 +39,7 @@ export const EmployeeForm = () => {
       always create a copy, make changes, and then set state.*/
       const newEmployee = { ...employee }
       let selectedVal = event.target.value
-      // forms always provide values as strings. But we want to save the ids as numbers. This will cover both customer and location ids
-      if (event.target.id.includes("Id")) {
-        selectedVal = parseInt(selectedVal)
-      }
+      
       /* Animal is an object with properties.
       Set the property to the new value
       using object bracket notation. */
