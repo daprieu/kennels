@@ -1,5 +1,7 @@
 import React, { useContext, useEffect } from "react"
 import { AnimalContext } from "./AnimalProvider"
+// import { LocationContext } from "../location/LocationProvider"
+// import { CustomerContext } from "../customer/CustomerProvider"
 import { AnimalCard } from "./AnimalCard"
 import "./Animal.css"
 
@@ -10,15 +12,20 @@ export const AnimalList = () => {
     // To start, you need to import the context object you created in the provider 
     // component so that the Context hook can access the objects it exposes.
   // This state changes when `getAnimals()` is invoked below
-  const { animals, getAnimals } = useContext(AnimalContext)
+const { animals, getAnimals } = useContext(AnimalContext)
+// const { locations, getLocations } = useContext(LocationContext)
+// const { customers, getCustomers } = useContext(CustomerContext)
 
 //   The useEffect hook allows the component to reach out into the world for anything 
 //   that cannot be handled during render. 
 //   In this case, it is the API call for the animals.
   //useEffect - reach out to the world for something
   useEffect(() => {
-    console.log("AnimalList: useEffect - getAnimals")
-    getAnimals()
+    console.log("AnimalList: Initial render before data")
+        getAnimals()
+        // .then(getCustomers)
+        // .then(getAnimals)
+    }, [])
 //     What is that empty array bracket?
 // The dependency array. Logic within functions only occur when a function is invoked. 
 // Within a React component, useEffect is a function. After the return, useEffect is automatically 
@@ -26,16 +33,23 @@ export const AnimalList = () => {
 // You can include dependencies in the array to cause the useEffect to run additional times.
 // Be careful setting state within the useEffect. State changes cause a re-render. Re-render can invoke 
 // useEffect (depending on the dependency array values). This would result in an infinate loop.
-  }, [])
+
 
 //   Use the .map() array method to iterate the array of animals and 
 //   generate HTML for each one by invoking the AnimalCard component function.
+// Use the .find() method on both the customers array and the locations array to find 
+// the object representation that each foreign key is referencing.
   return (
     <div className="animals">
-      {console.log("AnimalList: Render", animals)}
       {
         animals.map(animal => {
-          return <AnimalCard key={animal.id} animal={animal} />
+            // const owner = customers.find(c => c.id === animal.customerId)
+            // const location = locations.find(l => l.id === animal.locationId)
+// debugger
+            return <AnimalCard key={animal.id}
+                        // location={animal.location}
+                        // customer={animal.customer}
+                        animal={animal} />
         })
       }
     </div>

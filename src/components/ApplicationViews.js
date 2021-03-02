@@ -33,10 +33,14 @@ export const ApplicationViews = () => {
             It is crucial that you wrap components that need data with the provider component that exposes 
             that data in JSX. You can wrap a component in as many providers as needed. */}
             <AnimalProvider>
-                <Route path="/animals">
-                <h2>Animals</h2>
-                    <AnimalList />
-                </Route>
+            <LocationProvider>
+                <CustomerProvider>
+                    <Route exact path="/animals">
+                        <h2>Animals</h2>
+                        <AnimalList />
+                    </Route>
+                </CustomerProvider>
+            </LocationProvider>
             </AnimalProvider>
             {/* Render the animal list when http://localhost:3000/animals */}
             <CustomerProvider>
