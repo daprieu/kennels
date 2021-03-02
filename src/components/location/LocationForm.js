@@ -51,9 +51,10 @@ export const LocationForm = () => {
     const handleClickSaveLocation = (event) => {
       event.preventDefault() //Prevents the browser from submitting the form
 
-
-      if (locations === "" ) {
-        window.alert("Please add an Address")
+      const locationSel = location.name
+      const locationAdd = location.address
+      if (locationSel === "" ||locationAdd === "" ) {
+        window.alert("Please add Location name and Address")
       } else {
         //invoke addAnimal passing animal as an argument.
         //once complete, change the url and display the animal list
