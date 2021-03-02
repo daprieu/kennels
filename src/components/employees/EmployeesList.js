@@ -17,6 +17,7 @@ export const EmployeeList = () => {
 //   In this case, it is the API call for the animals.
   //useEffect - reach out to the world for something
   useEffect(() => {
+    
     console.log("EmployeeList: useEffect - getAnimals")
     getEmployees()
 }, [])
@@ -35,6 +36,7 @@ export const EmployeeList = () => {
       {console.log("EmployeeList: Render", employees)}
       {
         employees.map(employee => {
+            
           return <EmployeeCard key={employee.id} employee={employee} />
         })
       }
