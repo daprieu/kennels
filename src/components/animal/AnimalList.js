@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react"
+import { useHistory } from "react-router-dom" // import from libraries before your local modules
 import { AnimalContext } from "./AnimalProvider"
 // import { LocationContext } from "../location/LocationProvider"
 // import { CustomerContext } from "../customer/CustomerProvider"
@@ -15,6 +16,10 @@ export const AnimalList = () => {
 const { animals, getAnimals } = useContext(AnimalContext)
 // const { locations, getLocations } = useContext(LocationContext)
 // const { customers, getCustomers } = useContext(CustomerContext)
+//   The useHistory hook let's us tell React which route we want to visit. 
+//   We will use it to tell React to render the animal form component.
+
+const history = useHistory()
 
 //   The useEffect hook allows the component to reach out into the world for anything 
 //   that cannot be handled during render. 
@@ -40,7 +45,14 @@ const { animals, getAnimals } = useContext(AnimalContext)
 // Use the .find() method on both the customers array and the locations array to find 
 // the object representation that each foreign key is referencing.
   return (
-    <div className="animals">
+      <>
+          <button onClick={() => {history.push("/animals/create")}}>Add Animal</button>
+      <div className="animals">
+        
+{/* In React, we add event listeners directly on a button's onClick attribute.
+useHistory is provided by react-router-dom. 
+It contains a method, push() which we can use to change the URL. 
+Be sure to import it at the top of the document. */}
       {
         animals.map(animal => {
             // const owner = customers.find(c => c.id === animal.customerId)
@@ -53,6 +65,7 @@ const { animals, getAnimals } = useContext(AnimalContext)
         })
       }
     </div>
+    </>
   )
 }
 // ***Note that even though it looks like you are specifying an HTML component, you are actually invoking 
