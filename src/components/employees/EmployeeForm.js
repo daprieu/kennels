@@ -54,7 +54,7 @@ export const EmployeeForm = () => {
     const employeeName = employee.name
     const employeeLoc = employee.location
 
-      if (employeeName === "" || employeeLoc) {
+      if (employeeName === "" || employeeLoc === "") {
         window.alert("Please Enter new employee and location")
       } else {
         //invoke addAnimal passing animal as an argument.
