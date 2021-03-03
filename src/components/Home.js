@@ -18,7 +18,7 @@ const kennel = {
 
 
 export const Home = () => {
-    let loginId = JSON.parse(localStorage.getItem("kennel_customer"))
+    let loginId = localStorage.getItem("kennel_customerName")
 
     // let { customers, getCustomers } = useContext(CustomerContext)
     // console.log('customers: ', customers);
@@ -39,7 +39,7 @@ export const Home = () => {
            <div>Visit Us at the {kennel.locations[0].name} Location</div>
            <div>{kennel.locations[0].address}</div>
        </address>
-       <h3>hi, {loginId}</h3>
+       
         <PropsAndState yourName={loginId} />
     </>)
 }

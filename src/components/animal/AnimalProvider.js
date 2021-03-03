@@ -45,7 +45,13 @@ export const AnimalProvider = (props) => {
         })
         .then(getAnimals)
     }
-
+    //Since the animal detail component is responsible for showing data about an animal, 
+    //as well as its related owner and location data objects embedded inside the response. 
+    //Our use of _expand to get the nested related data back in one query looks like this.
+    const getAnimalById = (id) => {
+        return fetch(`http://localhost:8088/animals/${id}?_expand=location&_expand=customer`)
+            .then(res => res.json())
+    }
     /*
         You return a context provider which has the
         `animals` state, `getAnimals` function,
@@ -54,7 +60,7 @@ export const AnimalProvider = (props) => {
     */
     return (
         <AnimalContext.Provider value={{
-            animals, getAnimals, addAnimal
+            animals, getAnimals, addAnimal, getAnimalById
         }}>
             {props.children}
         </AnimalContext.Provider>
