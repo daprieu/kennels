@@ -9,6 +9,7 @@ export const EmployeeForm = () => {
 
     const { addEmployees } = useContext(EmployeeContext)
     const { locations, getLocations } = useContext(LocationContext)
+    // console.log('locations: ', locations);
 
     /*
     With React, we do not target the DOM with `document.querySelector()`. Instead, our return (render) reacts to state or props.
@@ -22,6 +23,7 @@ export const EmployeeForm = () => {
     });
 
     const history = useHistory();
+    // console.log('history: ', history);
 
     /*
     Reach out to the world and get location state

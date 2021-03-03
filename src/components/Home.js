@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+// import { CustomerList } from "./customer/CustomerList";
+import { CustomerContext, } from "./customer/CustomerProvider";
 import { PropsAndState } from './propsAndState/PropsAndState'
 
 // Home Component
@@ -15,9 +17,20 @@ const kennel = {
 }
 
 
-export const Home = () => (
+export const Home = () => {
+    let loginId = JSON.parse(localStorage.getItem("kennel_customer"))
+
+    // let { customers, getCustomers } = useContext(CustomerContext)
+    // console.log('customers: ', customers);
     
-    <>
+    // useEffect(() => {
+    //     getCustomers()
+    //     console.log('getCustomers: ', getCustomers);
+    // }, [])
+    
+    // const customer = customers.map(customer => customer.id === customer )
+    
+    return (<>
         {console.log(kennel.name)}
        
        <h2>{kennel.name}</h2>
@@ -26,6 +39,7 @@ export const Home = () => (
            <div>Visit Us at the {kennel.locations[0].name} Location</div>
            <div>{kennel.locations[0].address}</div>
        </address>
-        <PropsAndState yourName={"Alex Prieu"} />
-    </>
-)
+       <h3>hi, {loginId}</h3>
+        <PropsAndState yourName={loginId} />
+    </>)
+}
