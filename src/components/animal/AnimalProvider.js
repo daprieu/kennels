@@ -52,6 +52,8 @@ export const AnimalProvider = (props) => {
         return fetch(`http://localhost:8088/animals/${id}?_expand=location&_expand=customer`)
             .then(res => res.json())
     }
+    //Since the provider components handle all interactions with the database, you need to implement 
+    //a function that performs a fetch operation with the DELETE method to delete a specific animal.
     const releaseAnimal = animalId => {
         return fetch(`http://localhost:8088/animals/${animalId}`, {
             method: "DELETE"
@@ -64,6 +66,7 @@ export const AnimalProvider = (props) => {
         and the `addAnimal` function as keys. This
         allows any child elements to access them.
     */
+//    Expose the method via the AnimalContext.
     return (
         <AnimalContext.Provider value={{
             animals, getAnimals, addAnimal, getAnimalById, releaseAnimal
