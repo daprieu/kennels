@@ -5,10 +5,12 @@ import { Home } from "./Home"
 import { LocationProvider } from "./location/LocationProvider"
 import { LocationList } from "./location/LocationList"
 import { LocationForm } from "./location/LocationForm"
+import { LocationDetail } from "./location/LocationDetail"
 
 import { AnimalProvider } from "./animal/AnimalProvider"
 import { AnimalList } from "./animal/AnimalList"
 import { AnimalForm } from "./animal/AnimalForm"
+import { AnimalDetail } from "./animal/AnimalDetail"
 
 import { CustomerProvider } from "./customer/CustomerProvider"
 import { CustomerList } from "./customer/CustomerList"
@@ -16,6 +18,7 @@ import { CustomerList } from "./customer/CustomerList"
 import { EmployeeProvider } from "./employees/EmployeesProvider"
 import { EmployeeList } from "./employees/EmployeesList"
 import { EmployeeForm } from "./employees/EmployeeForm"
+import { EmployeeDetail } from "./employees/EmployeeDetail"
 
 
 export const ApplicationViews = () => {
@@ -37,6 +40,9 @@ export const ApplicationViews = () => {
                 <Route path="/locations/create">
                     <LocationForm />
                 </Route>
+                <Route exact path="/locations/detail/:locationId(\d+)">
+                    <LocationDetail />
+                </Route>
             </LocationProvider>
             {/* Render the animal list when http://localhost:3000/animals */}
             {/* Note that the <AnimalList> component is a child of the <AnimalProvider> component. 
@@ -53,6 +59,9 @@ export const ApplicationViews = () => {
                         </Route>
                         <Route path="/animals/create">
                             <AnimalForm />
+                        </Route>
+                        <Route exact path="/animals/detail/:animalId(\d+)">
+                            <AnimalDetail />
                         </Route>
                     </CustomerProvider>
                 </LocationProvider>
@@ -73,6 +82,9 @@ export const ApplicationViews = () => {
                 </Route>
                 <Route path="/employees/create">
                     <EmployeeForm />
+                </Route>
+                <Route exact path="/employees/detail/:employeeId(\d+)">
+                    <EmployeeDetail />
                 </Route>
                 </LocationProvider>
             </EmployeeProvider>

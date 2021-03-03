@@ -19,7 +19,7 @@ export const EmployeeForm = () => {
 
     const [employee, setEmployees] = useState({
       name: "",
-      location: ""
+      locationId: 0
     });
 
     const history = useHistory();
@@ -42,6 +42,9 @@ export const EmployeeForm = () => {
       const newEmployee = { ...employee }
       let selectedVal = event.target.value
     
+      if (event.target.id.includes("Id")) {
+        selectedVal = parseInt(selectedVal)
+      }
       /* Animal is an object with properties.
       Set the property to the new value
       using object bracket notation. */
@@ -78,7 +81,7 @@ export const EmployeeForm = () => {
           <fieldset>
               <div className="form-group">
                   <label htmlFor="location">Assign to location: </label>
-                  <select defaultValue={employee.location} name="location" id="location" onChange={handleControlledInputChange} className="form-control" >
+                  <select defaultValue={employee.location} name="location" id="locationId" onChange={handleControlledInputChange} className="form-control" >
                       <option value="0">Select a location</option>
                       {locations.map(l => (
                           <option key={l.name} value={l.name}>

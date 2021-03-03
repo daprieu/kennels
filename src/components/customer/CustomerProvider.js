@@ -21,7 +21,7 @@ export const CustomerProvider = (props) => {
     const [customers, setCustomers] = useState([])
 //Here's what the State hook is doing for you with a single line of code.
 // Define the variable which will hold the data.
-//let animals = []
+//let customers = []
 // Define the function to be used to modify that state.
 //const setAnimals = animalsData => {
 //     if (animalsData !== null && Array.isArray(animalsData)) {
