@@ -51,6 +51,17 @@ export const EmployeeProvider = (props) => {
         return fetch(`http://localhost:8088/employees/${id}?_expand=location`)
             .then(res => res.json())
     }
+
+    const updateAnimal = animal => {
+        return fetch(`http://localhost:8088/animals/${animal.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(animal)
+        })
+          .then(getAnimals)
+      }
     /*
         You return a context provider which has the
         `animals` state, `getAnimals` function,

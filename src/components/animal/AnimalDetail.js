@@ -44,6 +44,10 @@ const handleRelease = () => {
       <div className="animal__owner">Customer: {animal.customer?.name}</div>
       {/* Add the button within the return */}
       <button onClick={handleRelease}>Release Animal</button>
+      <button onClick={() => {
+        history.push(`/animals/edit/${animal.id}`)
+          }}>Edit
+      </button>
     </section>
   )
 }
