@@ -80,7 +80,7 @@ export const EmployeeForm = () => {
           </fieldset>
           <fieldset>
               <div className="form-group">
-                  <label htmlFor="location">Assign to location: </label>
+                  <label htmlFor="locationId">Assign to location: </label>
                   <select defaultValue={employee.location} name="location" id="locationId" onChange={handleControlledInputChange} className="form-control" >
                       <option value="0">Select a location</option>
                       {locations.map(l => (
