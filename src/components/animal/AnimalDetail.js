@@ -8,6 +8,7 @@ import { useParams, useHistory } from "react-router-dom"
 
 export const AnimalDetail = () => {
   // Update this line of code to include releaseAnimal
+  //Get a reference to the release function in your animal component.
 const { getAnimalById, releaseAnimal } = useContext(AnimalContext)
 
 	const [animal, setAnimal] = useState({})
@@ -25,7 +26,9 @@ const { getAnimalById, releaseAnimal } = useContext(AnimalContext)
     })
     }, [])
 
-
+//Add a button to your animal details component that will allow the user to release 
+//the animal from care. Then invoke the function when the button is clicked. 
+//Once the delete operation is complete, redirect the user back to the list of animals.
 const handleRelease = () => {
     releaseAnimal(animal.id)
       .then(() => {
@@ -39,6 +42,7 @@ const handleRelease = () => {
       {/* What's up with the question mark???? See below.*/}
       <div className="animal__location">Location: {animal.location?.name}</div>
       <div className="animal__owner">Customer: {animal.customer?.name}</div>
+      {/* Add the button within the return */}
       <button onClick={handleRelease}>Release Animal</button>
     </section>
   )
