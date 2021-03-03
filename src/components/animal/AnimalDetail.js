@@ -7,7 +7,8 @@ import { useParams, useHistory } from "react-router-dom"
 //We will also include useParams from react-router-dom allowing the app to read a parameter from the URL.
 
 export const AnimalDetail = () => {
-  const { getAnimalById } = useContext(AnimalContext)
+  // Update this line of code to include releaseAnimal
+const { getAnimalById, releaseAnimal } = useContext(AnimalContext)
 
 	const [animal, setAnimal] = useState({})
   // console.log('animal: ', animal);
@@ -24,6 +25,13 @@ export const AnimalDetail = () => {
     })
     }, [])
 
+
+const handleRelease = () => {
+    releaseAnimal(animal.id)
+      .then(() => {
+        history.push("/animals")
+      })
+  }
   return (
     <section className="animal">
       <h3 className="animal__name">{animal.name}</h3>
@@ -31,6 +39,7 @@ export const AnimalDetail = () => {
       {/* What's up with the question mark???? See below.*/}
       <div className="animal__location">Location: {animal.location?.name}</div>
       <div className="animal__owner">Customer: {animal.customer?.name}</div>
+      <button onClick={handleRelease}>Release Animal</button>
     </section>
   )
 }
