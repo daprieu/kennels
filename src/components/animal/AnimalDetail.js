@@ -10,6 +10,7 @@ export const AnimalDetail = () => {
   const { getAnimalById } = useContext(AnimalContext)
 
 	const [animal, setAnimal] = useState({})
+  // console.log('animal: ', animal);
 
 	const {animalId} = useParams();
 	const history = useHistory();
