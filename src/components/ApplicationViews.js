@@ -19,6 +19,7 @@ import { EmployeeProvider } from "./employees/EmployeesProvider"
 import { EmployeeList } from "./employees/EmployeesList"
 import { EmployeeForm } from "./employees/EmployeeForm"
 import { EmployeeDetail } from "./employees/EmployeeDetail"
+import { AnimalSearch } from "./animal/AnimalSearch"
 
 
 export const ApplicationViews = () => {
@@ -59,6 +60,7 @@ export const ApplicationViews = () => {
                         with "/animals" in it below this Route: "/animals/create" */}
                         <Route exact path="/animals">
                             <h2>Animals</h2>
+                            <AnimalSearch />
                             <AnimalList />
                         </Route>
                         <Route path="/animals/create">
