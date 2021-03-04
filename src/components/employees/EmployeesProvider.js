@@ -52,15 +52,15 @@ export const EmployeeProvider = (props) => {
             .then(res => res.json())
     }
 
-    const updateAnimal = animal => {
-        return fetch(`http://localhost:8088/animals/${animal.id}`, {
+    const updateEmployee = employee => {
+        return fetch(`http://localhost:8088/animals/${employee.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify(animal)
+          body: JSON.stringify(employee)
         })
-          .then(getAnimals)
+          .then(getEmployees)
       }
     /*
         You return a context provider which has the
@@ -70,7 +70,7 @@ export const EmployeeProvider = (props) => {
     */
     return (
         <EmployeeContext.Provider value={{
-            employees, getEmployees, addEmployees, getEmployeeById
+            employees, getEmployees, addEmployees, getEmployeeById, updateEmployee
         }}>
             {props.children}
         </EmployeeContext.Provider>
