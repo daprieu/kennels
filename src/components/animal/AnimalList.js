@@ -1,8 +1,6 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { useHistory } from "react-router-dom" // import from libraries before your local modules
 import { AnimalContext } from "./AnimalProvider"
-// import { LocationContext } from "../location/LocationProvider"
-// import { CustomerContext } from "../customer/CustomerProvider"
 import { AnimalCard } from "./AnimalCard"
 import "./Animal.css"
 
@@ -13,12 +11,14 @@ export const AnimalList = () => {
     // To start, you need to import the context object you created in the provider 
     // component so that the Context hook can access the objects it exposes.
   // This state changes when `getAnimals()` is invoked below
-const { animals, getAnimals } = useContext(AnimalContext)
+const { animals, getAnimals, searchTerms } = useContext(AnimalContext)
 // const { locations, getLocations } = useContext(LocationContext)
 // const { customers, getCustomers } = useContext(CustomerContext)
 //   The useHistory hook let's us tell React which route we want to visit. 
 //   We will use it to tell React to render the animal form component.
 
+  // Since you are no longer ALWAYS displaying all of the animals
+  const [ filteredAnimals, setFiltered ] = useState([])
 const history = useHistory()
 
 //   The useEffect hook allows the component to reach out into the world for anything 
@@ -39,6 +39,18 @@ const history = useHistory()
 // Be careful setting state within the useEffect. State changes cause a re-render. Re-render can invoke 
 // useEffect (depending on the dependency array values). This would result in an infinate loop.
 
+ // useEffect dependency array with dependencies - will run if dependency changes (state)
+  // searchTerms will cause a change
+  useEffect(() => {
+    if (searchTerms !== "") {
+      // If the search field is not blank, display matching animals
+      const subset = animals.filter(animal => animal.name.toLowerCase().includes(searchTerms))
+      setFiltered(subset)
+    } else {
+      // If the search field is blank, display all animals
+      setFiltered(animals)
+    }
+  }, [searchTerms, animals])
 
 //   Use the .map() array method to iterate the array of animals and 
 //   generate HTML for each one by invoking the AnimalCard component function.
@@ -54,14 +66,8 @@ useHistory is provided by react-router-dom.
 It contains a method, push() which we can use to change the URL. 
 Be sure to import it at the top of the document. */}
       {
-        animals.map(animal => {
-            // const owner = customers.find(c => c.id === animal.customerId)
-            // const location = locations.find(l => l.id === animal.locationId)
-// debugger
-            return <AnimalCard key={animal.id}
-                        // location={animal.location}
-                        // customer={animal.customer}
-                        animal={animal} />
+        filteredAnimals.map(animal => {
+            return <AnimalCard key={animal.id} animal={animal} />
         })
       }
     </div>
