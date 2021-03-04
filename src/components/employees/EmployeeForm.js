@@ -7,7 +7,7 @@ import { useHistory, useParams } from 'react-router-dom';
 export const EmployeeForm = () => {
     // const { addAnimal } = useContext(AnimalContext)
 
-    const { addEmployee, getEmployeeById, updateEmployee } = useContext(EmployeeContext)
+    const { addEmployees, getEmployeeById, updateEmployee } = useContext(EmployeeContext)
     const { locations, getLocations } = useContext(LocationContext)
     // console.log('locations: ', locations);
 
@@ -62,7 +62,7 @@ export const EmployeeForm = () => {
         .then(() => history.push(`/employees/detail/${employee.id}`))
       }else {
         //POST - add
-        addEmployee({
+        addEmployees({
             name: employee.name,
             locationId: parseInt(employee.locationId)
         })
@@ -87,7 +87,7 @@ export const EmployeeForm = () => {
         }
       })
     }, [])
-
+    // debugger
     return (
       <form className="employeeForm">
           <h2 className="employeeForm__title">{employeeId ? "Edit Employee" : "Add Employee"}</h2>

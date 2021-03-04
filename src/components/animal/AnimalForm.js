@@ -108,9 +108,11 @@ export const AnimalForm = () => {
             <label htmlFor="location">Assign to location: </label>
             <select value={animal.locationId} id="locationId" className="form-control" onChange={handleControlledInputChange}>
               <option value="0">Select a location</option>
+              
               {locations.map(l => (
                 <option key={l.id} value={l.id}>
                   {l.name}
+                  
                 </option>
               ))}
             </select>
