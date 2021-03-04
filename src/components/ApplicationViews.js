@@ -43,6 +43,10 @@ export const ApplicationViews = () => {
                 <Route exact path="/locations/detail/:locationId(\d+)">
                     <LocationDetail />
                 </Route>
+                
+                <Route path="/locations/edit/:locationId(\d+)">
+                    <LocationForm />
+                </Route>
             </LocationProvider>
             {/* Render the animal list when http://localhost:3000/animals */}
             {/* Note that the <AnimalList> component is a child of the <AnimalProvider> component. 

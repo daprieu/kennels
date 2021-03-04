@@ -9,8 +9,8 @@ import { useParams, useHistory } from "react-router-dom"
 export const AnimalDetail = () => {
   // Update this line of code to include releaseAnimal
   //Get a reference to the release function in your animal component.
-const { getAnimalById, releaseAnimal } = useContext(AnimalContext)
-
+  
+  const { getAnimalById, releaseAnimal } = useContext(AnimalContext)
 	const [animal, setAnimal] = useState({})
   // console.log('animal: ', animal);
 
@@ -18,7 +18,7 @@ const { getAnimalById, releaseAnimal } = useContext(AnimalContext)
 	const history = useHistory();
 
   useEffect(() => {
-    console.log("useEffect", animalId)
+    // console.log("useEffect", animalId)
     getAnimalById(animalId)
     
     .then((response) => {

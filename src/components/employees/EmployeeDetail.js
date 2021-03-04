@@ -12,7 +12,7 @@ export const EmployeeDetail = () => {
 	const history = useHistory();
 
   useEffect(() => {
-    console.log("useEffect", employeeId)
+    // console.log("useEffect", employeeId)
     getEmployeeById(employeeId)
     .then((response) => {
       setEmployees(response)

@@ -100,10 +100,10 @@ export const EmployeeForm = () => {
           <fieldset>
               <div className="form-group">
                   <label htmlFor="locationId">Assign to location: </label>
-                  <select defaultValue={employee.location} name="location" id="locationId" onChange={handleControlledInputChange} className="form-control" >
+                  <select value={employee.locationId} name="location" id="locationId" onChange={handleControlledInputChange} className="form-control" >
                       <option value="0">Select a location</option>
                       {locations.map(l => (
-                          <option key={l.name} value={l.name}>
+                            <option key={l.id} value={l.id}>
                               {l.name}
                           </option>
                       ))}

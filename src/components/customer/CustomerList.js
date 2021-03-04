@@ -17,7 +17,7 @@ export const CustomerList = () => {
 //   In this case, it is the API call for the animals.
   //useEffect - reach out to the world for something
   useEffect(() => {
-    console.log("CustomerList: useEffect - getCustomers")
+    // console.log("CustomerList: useEffect - getCustomers")
     getCustomers()
 }, [])
 //     What is that empty array bracket?
@@ -32,7 +32,7 @@ export const CustomerList = () => {
 //   generate HTML for each one by invoking the AnimalCard component function.
   return (
     <div className="customers">
-      {console.log("CustomerList: Render", customers)}
+      {/* {console.log("CustomerList: Render", customers)} */}
       {
         customers.map(customer => {
           return <CustomerCard key={customer.id} customer={customer} />

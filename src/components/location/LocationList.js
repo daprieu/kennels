@@ -18,7 +18,7 @@ export const LocationList = () => {
 //   In this case, it is the API call for the animals.
   //useEffect - reach out to the world for something
   useEffect(() => {
-    console.log("LocationsList: useEffect - getLocations")
+    // console.log("LocationsList: useEffect - getLocations")
     getLocations()
 }, [])
 //     What is that empty array bracket?
@@ -36,7 +36,7 @@ const history = useHistory()
     <>
     <button onClick={() => {history.push("/locations/create")}}>Add Location</button>
     <div className="locations">
-      {console.log("LocationList: Render", locations)}
+      {/* {console.log("LocationList: Render", locations)} */}
       {
         locations.map(location => {
           return <LocationCard key={location.id} location={location} />

@@ -19,7 +19,7 @@ export const EmployeeList = () => {
   //useEffect - reach out to the world for something
   useEffect(() => {
     
-    console.log("EmployeeList: useEffect - getAnimals")
+    // console.log("EmployeeList: useEffect - getAnimals")
     getEmployees()
 }, [])
 //     What is that empty array bracket?
@@ -37,7 +37,7 @@ const history = useHistory()
     <>
     <button onClick={() => {history.push("/employees/create")}}>Add Employee</button>
     <div className="employees">
-      {console.log("EmployeeList: Render", employees)}
+      {/* {console.log("EmployeeList: Render", employees)} */}
       {
         employees.map(employee => {
             
