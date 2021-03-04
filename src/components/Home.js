@@ -1,6 +1,6 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 // import { CustomerList } from "./customer/CustomerList";
-import { CustomerContext, } from "./customer/CustomerProvider";
+// import { CustomerContext, } from "./customer/CustomerProvider";
 import { PropsAndState } from './propsAndState/PropsAndState'
 
 // Home Component

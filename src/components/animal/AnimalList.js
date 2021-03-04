@@ -26,7 +26,7 @@ const history = useHistory()
 //   In this case, it is the API call for the animals.
   //useEffect - reach out to the world for something
   useEffect(() => {
-    console.log("AnimalList: Initial render before data")
+    // console.log("AnimalList: Initial render before data")
         getAnimals()
         // .then(getCustomers)
         // .then(getAnimals)

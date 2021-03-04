@@ -43,6 +43,10 @@ export const ApplicationViews = () => {
                 <Route exact path="/locations/detail/:locationId(\d+)">
                     <LocationDetail />
                 </Route>
+                
+                <Route path="/locations/edit/:locationId(\d+)">
+                    <LocationForm />
+                </Route>
             </LocationProvider>
             {/* Render the animal list when http://localhost:3000/animals */}
             {/* Note that the <AnimalList> component is a child of the <AnimalProvider> component. 
@@ -62,6 +66,10 @@ export const ApplicationViews = () => {
                         </Route>
                         <Route exact path="/animals/detail/:animalId(\d+)">
                             <AnimalDetail />
+                        </Route>
+                        {/* // Which provider should this be nested in? */}
+                        <Route path="/animals/edit/:animalId(\d+)">
+                            <AnimalForm />
                         </Route>
                     </CustomerProvider>
                 </LocationProvider>
@@ -85,6 +93,9 @@ export const ApplicationViews = () => {
                 </Route>
                 <Route exact path="/employees/detail/:employeeId(\d+)">
                     <EmployeeDetail />
+                </Route>
+                <Route path="/employees/edit/:employeeId(\d+)">
+                    <EmployeeForm />
                 </Route>
                 </LocationProvider>
             </EmployeeProvider>
